@@ -11,4 +11,10 @@ $(function(){
         toast.play();
         $('#toast').toast({ autohide: false }).toast('show');
     });
+
+    $(document).keydown(function(e) {
+        if (e.key === "Escape") { 
+            $('#toast').toast('hide');
+       }
+   });
 });
