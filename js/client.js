@@ -3,6 +3,14 @@ $(function(){
     var toast = new Audio('media/toast.wav');
     $('.code').on('click', function(e) {
         e.preventDefault();
+
+        // set toast product and code based on data tags
+        var code = $(this).attr('dataCode');
+        $( "#code" ).html( code );
+
+        var product =  $(this).attr('dataProduct');
+        $( "#product" ).html( product );
+
          // first pause the audio (in case it is still playing)
          toast.pause();
          // reset the audio
@@ -12,6 +20,7 @@ $(function(){
         $('#toast').toast({ autohide: false }).toast('show');
     });
 
+    // toast is hidden (closed) when escape key is hit
     $(document).keydown(function(e) {
         if (e.key === "Escape") { 
             $('#toast').toast('hide');
