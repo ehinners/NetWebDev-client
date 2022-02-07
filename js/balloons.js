@@ -1,4 +1,14 @@
 $(function(){
+
+    let animationList = ["heartBeat", "bounce", "flash", "pulse", "rubberBand", "shakeX", "shakeY", "headShake", "swing", "tada", "wobble", "jello"]
+    
+    var atnSeeker = animationList[Math.floor(Math.random() * animationList.length)];
+
+    var prefix =    "animate__";
+    var animation = prefix + atnSeeker;
+    $("#randomAnimateTitle").addClass(animation);
+
+
     $('#birthday').pickadate({ format: 'mmmm, d' });
 
      // uncheck all checkboxes (FireFox)
