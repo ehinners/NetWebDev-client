@@ -40,6 +40,12 @@ $(function(){
          $('#' + this.id + 'Img').addClass('animate__animated animate__bounceOutUp');
     });
 
+    // event listener for label hover
+    $('.colorSwitcher').mouseover(function(){
+        var colorChange = $(this).prop("for");
+        $("h1").css({'color': colorChange});
+    });
+
     // event listener for form submit
     $('#submit').on('click', function(event) {
         event.preventDefault();
