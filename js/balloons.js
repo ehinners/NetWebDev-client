@@ -46,6 +46,12 @@ $(function(){
         $("h1").css({'color': colorChange});
     });
 
+    // event listener for mouseleave 
+    $('.colorSwitcher').mouseleave(function(){
+        var colorChange = $(this).prop("for");
+        $("h1").css({'color': "slategray"});
+    });
+
     // event listener for form submit
     $('#submit').on('click', function(event) {
         event.preventDefault();
