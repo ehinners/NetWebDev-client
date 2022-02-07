@@ -25,8 +25,7 @@ $(function(){
 
         // check all checkboxes
         $('.form-check-input').each(function () {
-             //$(this).prop('checked', allButtonsChecked);
-             $(this)[0].checked = allButtonsChecked;
+             $(this).prop('checked', allButtonsChecked);
              $(this).trigger("change");
         });
     });
