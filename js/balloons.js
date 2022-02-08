@@ -9,7 +9,6 @@ $(function(){
     var animation = prefix + atnSeeker;
     $("#randomAnimateTitle").addClass(animation);
 
-
     $('#birthday').pickadate({ format: 'mmmm, d' });
 
      // uncheck all checkboxes (FireFox)
@@ -52,11 +51,40 @@ $(function(){
         $("h1").css({'color': "slategray"});
     });
 
+    // preload audio
+    var toast = new Audio('media/toast.wav');
+
     // event listener for form submit
     $('#submit').on('click', function(event) {
         event.preventDefault();
+
+        // check to see how many boxes are checked
+        var $balloonBoxes = $('.balloonSelector:checked');
+
+        // if none are, display toast
+        if($balloonBoxes.length == 0)
+        {
+           // first pause the audio (in case it is still playing)
+            toast.pause();
+            // reset the audio
+            toast.currentTime = 0;
+            // play audio
+            toast.play();
+            $('#toast').toast({ autohide: false }).toast('show');
+        }
+        else{
+            // hide toast if user hits submit AND has selected a balloon
+            $('#toast').toast('hide');
+        }
         
     });
+
+    // toast is hidden (closed) when escape key is hit
+    $(document).keydown(function(e) {
+        if (e.key === "Escape") { 
+            $('#toast').toast('hide');
+       }
+   });
 
     
 });
